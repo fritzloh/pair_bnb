@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<br>
+
+
+<div id="tag_cloud">
+  <% tag_cloud Listing.tag_counts, %w[s m l] do |tag, css_class| %>
+  <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+
+
+<h1>All Listing</h1>
+
+    <% @listings.each do |listing| %>
+
+    <h2><%= listing.title %></h2>
+    <p>Property Type: <%= listing.property_type %></p>
+    <p>Country: <%= listing.country %></p>
+    <p>Bedrooms: <%= listing.bedrooms %></td>
+    <p> Tags: <%= raw listing.tag_list.map {|t| link_to t, tag_path(t) }.join(', ') %>
+    <p><%= link_to 'Show', listing %></p>
+    <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
+    <p><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+    <%end%>
+    
+<%= link_to 'New Listing', new_listing_path %>
