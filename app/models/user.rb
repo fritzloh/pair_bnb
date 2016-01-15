@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
       u.name = auth_hash["info"]["name"]
       u.email = auth_hash["extra"]["raw_info"]["email"]
       u.encrypted_password = "encrypted_password"
-      u.avatar = auth_hash[:avatar]
+      u.remote_avatar_url = auth_hash["info"]["image"].gsub('http://','https://')
+      u.uid = auth_hash["uid"]
       u.authentications<<(authentication)
     end
   end
@@ -25,6 +26,8 @@ class User < ActiveRecord::Base
   def password_optional?
     true
   end
+
+  
 
 end
 
