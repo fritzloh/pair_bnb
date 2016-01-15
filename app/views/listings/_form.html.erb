@@ -47,6 +47,10 @@
     <%= f.label :zipcode %><br>
     <%= f.text_field :zipcode %>
   </div>
+  <%= form_for @listing, :html => {:multipart => true} do |f| %>
+    My Avatar
+    <%= f.file_field :listing %>
+<% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

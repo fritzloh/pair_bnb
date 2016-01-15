@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  mount_uploader :avatar, AvatarUploader
 
   has_many :listings
   has_many :authentications, :dependent => :destroy
@@ -9,6 +10,7 @@ class User < ActiveRecord::Base
       u.name = auth_hash["info"]["name"]
       u.email = auth_hash["extra"]["raw_info"]["email"]
       u.encrypted_password = "encrypted_password"
+      u.avatar = auth_hash[:avatar]
       u.authentications<<(authentication)
     end
   end
