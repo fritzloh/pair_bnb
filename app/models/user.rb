@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
       u.email = auth_hash["extra"]["raw_info"]["email"]
       u.encrypted_password = "encrypted_password"
       u.remote_avatar_url = auth_hash["info"]["image"].gsub('http://','https://')
-      u.uid = auth_hash["uid"]
       u.authentications<<(authentication)
     end
   end

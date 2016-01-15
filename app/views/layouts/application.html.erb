@@ -23,7 +23,7 @@
 
 
 	<% if current_user %>
-	<%= image_tag current_user.avatar_url %>
+	<%= image_tag current_user.avatar.small_avatar %>
 	    Welcome <strong><%= current_user.name %></strong>!
 	   
 	  <% else %>
