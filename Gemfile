@@ -33,7 +33,7 @@ gem 'fog'
 # photo resizing
 gem "mini_magick"
 # file upload solution
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

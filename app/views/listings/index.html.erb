@@ -15,6 +15,11 @@
     <% @listings.each do |listing| %>
 
     <h2><%= listing.title %></h2>
+    <% listing.images.each do |x| %>
+      <%= image_tag x.large_images.url %>
+    <% end %>
+    
+
     <p>Property Type: <%= listing.property_type %></p>
     <p>Country: <%= listing.country %></p>
     <p>Bedrooms: <%= listing.bedrooms %></td>

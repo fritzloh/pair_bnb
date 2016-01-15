@@ -28,7 +28,10 @@ class ListingsController < ApplicationController
   # POST /listings
   # POST /listings.json
   def create
+    # byebug
     @listing = Listing.new(listing_params)
+    byebug
+    # @listing.update(images: params[:listing][:images])
 
     respond_to do |format|
       if @listing.save
@@ -73,6 +76,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :property_type, :bedrooms, :country, :street_address, :city, :state, :zipcode, :tag_list, :image)
+      byebug
+      params.require(:listing).permit(:title, :property_type, :bedrooms, :country, :street_address, :city, :state, :zipcode, :tag_list, {images: []})
     end
 end
